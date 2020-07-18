@@ -17,11 +17,12 @@ class UsersController extends Controller
     {
         // ユーザ一覧をidの降順で取得
         $users = User::orderBy('id', 'desc')->paginate(10);
-
+        
         // ユーザ一覧ビューでそれを表示
         return view('users.index', [
             'users' => $users,
         ]);
+        
     }
 
     /**
@@ -161,6 +162,20 @@ class UsersController extends Controller
         return view('users.followers', [
             'user' => $user,
             'users' => $followers,
+        ]);
+    }
+    
+     public function favorites($id)
+    {
+        $user = User::findOrFail($id);
+        
+        $user->loadRelationshipCounts();
+        
+        $favorites = $user->favorites()->paginate(10);
+        
+        return view('users.favorites', [
+            'user' => $user,
+            'users' => $favorites,
         ]);
     }
 }
