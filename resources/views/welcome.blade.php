@@ -31,4 +31,3 @@
         </div>
     @endif
 @endsection
-では次にWe
