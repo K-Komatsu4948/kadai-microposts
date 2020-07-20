@@ -167,7 +167,7 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
         
-        $micropost->loadRelationshipCounts();
+        $user->loadRelationshipCounts();
         
         $microposts = $user->favorites()->paginate(10);
         
