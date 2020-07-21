@@ -163,8 +163,9 @@ class UsersController extends Controller
         ]);
     }
     
-     public function favorites($id)
+    public function favorites($id)
     {
+        
         $user = User::findOrFail($id);
         
         $user->loadRelationshipCounts();
@@ -173,7 +174,7 @@ class UsersController extends Controller
         
         return view('users.favorites', [
            'user' => $user,
-           'users' => $microposts,
+           'microposts' => $microposts,
         ]);
     }
 }

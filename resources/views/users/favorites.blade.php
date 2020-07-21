@@ -10,6 +10,5 @@
             {{-- タブ --}}
             @include('users.navtabs')
             {{-- 投稿一覧 --}}
-            @include('users.microposts')
-    </div>
+            @include('microposts.microposts')
 @endsection
