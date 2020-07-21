@@ -12,7 +12,7 @@
                     </div>
                     <div>
                         {{-- 投稿内容 --}}
-                        <p class="mb-0">{!! nl2br(e($micropost->content)) !!}</p>
+                        <p class="mb-0">{!! nl2br(e($micropost->content)) !!}</p> 
                         {{-- お気に入り/お気に入りを外すボタン --}}
                         @include('user_favorite.favorite_button')
                     <div>
