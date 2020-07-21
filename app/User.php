@@ -144,12 +144,10 @@ class User extends Authenticatable
     
     
 
-    public function favolites($micropostId) 
+    public function favorite($micropostId) 
     { 
         
-        $exist = $this->favorite($micropostId);
-        
-        $its_me = $this->id == $micropostId;
+        $exist = $this->is_favorites($micropostId);
         
         if ($exist || $its_me) {
             
@@ -164,9 +162,7 @@ class User extends Authenticatable
      public function unfavorite($micropostId)
     {
         
-        $exist = $this->favorites($micropostId);
-        
-        $its_me = $this->id == $micropostId;
+        $exist = $this->is_favorites($micropostId);
         
         if ($exist && !$its_me) {
             
@@ -178,7 +174,7 @@ class User extends Authenticatable
         }
     }
     
-    public function is_favoritings($micropostId)
+    public function is_favorites($micropostId)
     {
         return $this->favorites()->where('micropost_id', $micropostId)->exists();
     }
